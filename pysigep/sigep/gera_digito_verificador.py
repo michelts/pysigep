@@ -26,6 +26,7 @@
 ###############################################################################
 
 import xml.etree.cElementTree as Et
+from six import string_types
 
 from pysigep.base import RequestBaseSIGEPAuthentication
 from pysigep.base import ResponseBase
@@ -38,9 +39,13 @@ class RequestGeraDigitoVerificadorSIGEP(RequestBaseSIGEPAuthentication):
         super(RequestGeraDigitoVerificadorSIGEP, self).__init__(
             ResponseGeraDigitoVerificador, usuario, senha)
 
+        if isinstance(etiquetas, string_types):
+            etiquetas = etiquetas.split(',')
+
         self.etiquetas = [
             CampoString('etiquetas', valor=etq, obrigatorio=True)
-            for etq in etiquetas.split(',')]
+            for etq in etiquetas]
+        print self.etiquetas
 
     def get_data(self):
         xml = RequestBaseSIGEPAuthentication.HEADER
@@ -48,8 +53,9 @@ class RequestGeraDigitoVerificadorSIGEP(RequestBaseSIGEPAuthentication):
         for etq in self.etiquetas:
             xml += etq.get_xml()
         xml += super(RequestGeraDigitoVerificadorSIGEP, self).get_data()
-        xml += '<cli:geraDigitoVerificadorEtiquetas>'
+        xml += '</cli:geraDigitoVerificadorEtiquetas>'
         xml += RequestBaseSIGEPAuthentication.FOOTER
+        print xml
         return xml
 
 

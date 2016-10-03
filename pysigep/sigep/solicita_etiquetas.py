@@ -56,7 +56,7 @@ class RequestSolicitaEtiquetaSIGEP(RequestBaseSIGEPAuthentication):
         xml += self.id_servico.get_xml()
         xml += self.qtd_etiquetas.get_xml()
         xml += super(RequestSolicitaEtiquetaSIGEP, self).get_data()
-        xml += '</<cli:solicitaEtiquetas>'
+        xml += '</cli:solicitaEtiquetas>'
         xml += RequestBaseSIGEPAuthentication.FOOTER
         return xml
 
