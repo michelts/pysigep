@@ -29,9 +29,7 @@ import xml.etree.cElementTree as Et
 
 from pysigep.base import RequestBaseSIGEPAuthentication
 from pysigep.base import ResponseBase
-from pysigep.campos import CampoCNPJ
 from pysigep.campos import CampoString
-from pysigep.campos import CampoInteiro
 
 
 class RequestBuscaCliente(RequestBaseSIGEPAuthentication):
