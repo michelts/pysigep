@@ -35,7 +35,7 @@ from pysigep.campos import CampoString
 class RequestBuscaCliente(RequestBaseSIGEPAuthentication):
 
     def __init__(self, id_contrato, id_cartao_postagem, usuario, senha):
-        super(RequestBuscaCliente, self).__init__(ResponseSolicitaEtiqueta, usuario, senha)
+        super(RequestBuscaCliente, self).__init__(ResponseBuscaCliente, usuario, senha)
 
         self.id_contrato = CampoString('idContrato', valor=id_contrato, obrigatorio=True, tamanho=10)
         self.id_cartao_postagem = CampoString('idCartaoPostagem', valor=id_cartao_postagem, obrigatorio=True, tamanho=10)
@@ -51,10 +51,10 @@ class RequestBuscaCliente(RequestBaseSIGEPAuthentication):
         return xml
 
 
-class ResponseSolicitaEtiqueta(ResponseBase):
+class ResponseBuscaCliente(ResponseBase):
 
     def __init__(self):
-        super(ResponseSolicitaEtiqueta, self).__init__()
+        super(ResponseBuscaCliente, self).__init__()
 
     def _parse_xml(self, xml):
         for end in Et.fromstring(xml).findall('.//return'):
