@@ -45,7 +45,6 @@ class RequestGeraDigitoVerificadorSIGEP(RequestBaseSIGEPAuthentication):
         self.etiquetas = [
             CampoString('etiquetas', valor=etq, obrigatorio=True)
             for etq in etiquetas]
-        print self.etiquetas
 
     def get_data(self):
         xml = RequestBaseSIGEPAuthentication.HEADER
