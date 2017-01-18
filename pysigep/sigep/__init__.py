@@ -135,5 +135,5 @@ def fecha_plp_servicos(**kwargs):
     path = os.path.join(path, 'templates')
     xml = render_xml(path, "PLP.xml", kwargs)
     kwargs["xml"] = '<?xml version="1.0" encoding="ISO-8859-1" ?>' + xml
-    return send("FechaPlpVariosServicos.xml", 'fechaPlpVariosServicosResponse',
+    return send("FechaPlpVariosServicos.xml", 'fechaPlpResponse',
                 API, url, encoding="ISO-8859-1", **kwargs)
