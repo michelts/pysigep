@@ -25,13 +25,13 @@ class TestFechaPlpServicos(TestCase):
             'nome_remetente': 'Empresa Ltda',
             'logradouro_remetente': 'Avenida Centra',
             'numero_remetente': '2370',
-            'complemento_remetente': u'[sala 1205,12° andar]',
+            'complemento_remetente': '[sala 1205,12° andar]',
             'bairro_remetente': 'Centro',
             'cep_remetente': '70002900',
-            'cidade_remetente': u'Brasília',
+            'cidade_remetente': 'Brasília',
             'uf_remetente': 'PR',
             'telefone_remetente': '6112345008',
-            'email_remetente': u'cli@mail.com.br',
+            'email_remetente': 'cli@mail.com.br',
             'objetos': [{
                 'numero_etiqueta': self.etiqueta_com_dv,
                 'codigo_servico_postagem': '',
@@ -72,7 +72,7 @@ class TestFechaPlpServicos(TestCase):
     def test_send_plp_servicos(self):
         self.data['ambiente'] = 1
         retorno = fecha_plp_servicos(**self.data)
-        self.assertTrue(retorno != u'')
+        self.assertTrue(retorno != '')
 
     def test_send_plp_servicos_valida_xml_contra_xsd(self):
         self.data['ambiente'] = 1

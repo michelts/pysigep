@@ -31,7 +31,7 @@ from pysigep.utils import _valida
 import base64
 import io
 from PIL import Image, ImageDraw, ImageFont
-from StringIO import StringIO
+from io import StringIO
 import textwrap
 import os
 

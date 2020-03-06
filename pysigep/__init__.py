@@ -67,7 +67,7 @@ def send(xml_path, xml_method, api, url,
     header = {'Content-type': 'text/xml; charset=;%s' % encoding}
     if soap_action:
         header['SOAPAction'] = soap_action
-    resposta = requests.post(url, data=xml.encode(encoding),
+    resposta = requests.post(url, data=xml.decode(encoding),
                              headers=header, verify=False)
     xml_resp, obj_resp = sanitize_response(resposta.text)
     if soap_action == 'http://tempuri.org/CalcPrecoPrazo':
