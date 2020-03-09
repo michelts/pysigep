@@ -145,7 +145,7 @@ def fecha_plp_servicos(**kwargs):
         path, "PLP.xml", kwargs,
         validation_schema=fecha_plp_servicos_validation_schema()
     )
-    kwargs["xml"] = b'<?xml version="1.0" encoding="ISO-8859-1" ?>' + xml
+    kwargs["xml"] = '<?xml version="1.0" encoding="ISO-8859-1" ?>' + xml.decode('utf-8')
     return send("FechaPlpVariosServicos.xml", 'fechaPlpVariosServicosResponse',
                 API, url, encoding="ISO-8859-1", **kwargs)
 
